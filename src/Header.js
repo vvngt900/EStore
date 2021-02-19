@@ -4,13 +4,24 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import './Header.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import Badge from 'react-bootstrap/Badge'
 
-
+import { useStateValue } from './StateProvider';
 import { Link } from 'react-router-dom';
+import { auth } from "./firebase";
 
 function Header() {
+
+  const [{ basket, user }, dispatch] = useStateValue();
+
+  const handleAuthenticaton = () => {
+    if (user) {
+      auth.signOut();
+    }
+  }
+
     return (
+
         // <div className="header">
         // <Link to='/'>
         // <img className="header_logo" alt="" src="https://fuwu.s3.ap-south-1.amazonaws.com/icons/fuwu+logoslow.gif"/>
@@ -41,20 +52,27 @@ function Header() {
 
         // </div>
 
-        <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar bg="light" expand="lg" sticky="top" >
+        <Link to='home'>
+        <Navbar.Brand>Fuwu</Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-            </NavDropdown>
+          <Nav className="ml-auto">
+            <Nav.Link>
+            <Link to={!user && '/login'}>
+              <div className="header_option" onClick={handleAuthenticaton} className="header__option">
+              <span className="header__optionLineOne">Hello {!user ? 'Guest' : user?.email}</span><br/>
+              <span className="header__optionLineTwo">{user ? 'Sign Out' : 'Sign In'}</span>
+              </div>
+            </Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to='checkout'>
+              <ShoppingCartIcon/>
+                <span className="header_basketCount"><Badge variant="light">({basket.length})</Badge></span>
+              </Link>
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
         </Navbar>

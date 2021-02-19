@@ -1,65 +1,46 @@
 import React from 'react';
 import FlashProduct from './FlashProduct';
 import './Home.css';
-import Product from './Product';
-import CardT from './CardT';
-import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from "react-bootstrap/Container";
+import { Col, Row } from 'react-bootstrap';
+import MaterialCard from './MaterialCard';
+import ProductCard from './ProductCard';
+
+
 
 function Home() {
     return (
-        <div className='home'>
+    <Container fluid>
 
-            <div className="home_container">
+                <Row>
+                    <Col>
+                    <FlashProduct id='12321341' 
+                                  image='https://firebasestorage.googleapis.com/v0/b/estore-5fb9b.appspot.com/o/eStore_images%2FartWrk1.jpeg?alt=media&token=578af563-55e1-40b9-b965-a6c57d7facc6' 
+                                  title="Sample Tooth 1" 
+                                  price={100}/>
+                    </Col>
+                    <Col>
+                    <FlashProduct id='12321342' 
+                                  image="https://firebasestorage.googleapis.com/v0/b/estore-5fb9b.appspot.com/o/eStore_images%2Fmask2.jpeg?alt=media&token=b1ac4063-ff3e-45c3-b108-033c514067f4" 
+                                  title="Sample Tooth 2" 
+                                  price={100}/>
+                    </Col>
+                    <Col>
+                    <MaterialCard/>
+                    {/* <FlashProduct id='12321343' 
+                                  image="https://firebasestorage.googleapis.com/v0/b/estore-5fb9b.appspot.com/o/eStore_images%2FartWrk3.jpeg?alt=media&token=136bcab1-3a3b-402d-b725-7b9b78c83b89" 
+                                  title="Sample Tooth 3" 
+                                  price={100}/> */}
+                    </Col>
+                    <Col>
+                    <MaterialCard/>
+                    </Col>
+                    {/* <Col>
+                    <ProductCard/>
+                    </Col> */}
+                </Row>
 
-                <img className="home_image" src="https://firebasestorage.googleapis.com/v0/b/fuwutest.appspot.com/o/e-store%2Fflat-lay-desk-elements-arrangement-with-copy-space.jpg?alt=media&token=a539d4fb-f77d-4705-8067-e55f9d236100" alt=""/>
-
-                <div className="home_row">
-                    <Product 
-                        title="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard." 
-                        price={100}
-                        image='https://firebasestorage.googleapis.com/v0/b/fuwutest.appspot.com/o/e-store%2FWhatsApp%20Image%202020-10-31%20at%205.45.45%20AM.jpeg?alt=media&token=4aee2f96-a8c3-423a-91f9-ca3b50c247cf'
-                        rating = {5}/>
-                    <Product 
-                        title="product 1" 
-                        price={100}
-                        image='https://firebasestorage.googleapis.com/v0/b/fuwutest.appspot.com/o/e-store%2FWhatsApp%20Image%202020-10-31%20at%205.45.45%20AM.jpeg?alt=media&token=4aee2f96-a8c3-423a-91f9-ca3b50c247cf'
-                        rating = {5}/>
-                </div>
-
-                <div className="home_row">
-                    <FlashProduct image='http://code.slicecrowd.com/labs/4/images/t-shirt.png' title="Sample Tooth" price="100"/>
-                    <FlashProduct image='https://firebasestorage.googleapis.com/v0/b/fuwutest.appspot.com/o/e-store%2FWhatsApp%20Image%202020-10-31%20at%205.45.45%20AM.jpeg?alt=media&token=4aee2f96-a8c3-423a-91f9-ca3b50c247cf' title="Sample Tooth" price="100"/>
-                </div>
-
-                <div className="home_row">
-                    <Product 
-                        title="product 1" 
-                        price={100}
-                        image='https://firebasestorage.googleapis.com/v0/b/fuwutest.appspot.com/o/e-store%2FWhatsApp%20Image%202020-10-31%20at%205.45.45%20AM.jpeg?alt=media&token=4aee2f96-a8c3-423a-91f9-ca3b50c247cf'
-                        rating = {5}/>
-                    <Product 
-                        title="product 1" 
-                        price={100}
-                        image='https://firebasestorage.googleapis.com/v0/b/fuwutest.appspot.com/o/e-store%2FWhatsApp%20Image%202020-10-31%20at%205.45.45%20AM.jpeg?alt=media&token=4aee2f96-a8c3-423a-91f9-ca3b50c247cf'
-                        rating = {5}/>
-                        <Product 
-                        title="product 1" 
-                        price={100}
-                        image='https://firebasestorage.googleapis.com/v0/b/fuwutest.appspot.com/o/e-store%2FWhatsApp%20Image%202020-10-31%20at%205.45.45%20AM.jpeg?alt=media&token=4aee2f96-a8c3-423a-91f9-ca3b50c247cf'
-                        rating = {5}/>
-                </div>
-
-                <div className="home_row">
-                    <CardT/>
-                </div>
-
-                
-
-            </div>
-
-        </div>
-
-         
+    </Container>
     )
 }
 

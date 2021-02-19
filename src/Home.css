@@ -4,28 +4,52 @@
     margin-left: auto;
     margin-right: auto;
     max-width: 1500px;
+    background-color: rgb(211, 214, 214);
 }
 
 .home_container {
     width: 100%;
+    background-color: #f7f7f7;
 }
 
-.home_row {
+.jumbo {
+    background:url('https://firebasestorage.googleapis.com/v0/b/fuwutest.appspot.com/o/e-store%2FFuwu_banner.jpg?alt=media&token=6ee91540-bc9f-4f22-874e-b2f9bd8f8035');
+    object-fit: contain;
+    width: 100%;
+    height: 300px;
+    position: relative;
+    z-index: -2;
+    color: white;
+}
+
+.overlay {
+    background-color: #000;
+    opacity:0.6;
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:-1;
+}
+
+.lh-condensed { line-height: 1.25; }
+
+Navbar {
+    z-index: 2;
+}
+
+/* .home_row {
     display: flex;
     z-index: 1;
-    margin-left: 15px;
-    margin-right: 15px;
-}
+} */
 
 .home_image{
     width: 100%;
     z-index: -1;
-    mask-image: linear-gradient(to bottom, rgb(0, 0, 0,1), );
-    filter: blur(5px);
-    -webkit-filter: blur(8px);
+    height: 600px;
     object-fit: cover;
-    height: 20%;
-    margin-bottom: -250px;
+    margin-bottom: -200px;
 }
 
 
